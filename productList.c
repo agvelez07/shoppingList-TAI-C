@@ -160,3 +160,11 @@ void removeProductFromList(ProductList productList, Product product)
         }
     }
 }
+
+void destroyProductList(ProductList productList){
+    if (!productList) return;
+
+    free(productList->name);
+    free(productList->productItems);
+    free(productList);
+}
