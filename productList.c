@@ -21,17 +21,31 @@ struct productList {
 
 // Criação de nova lista (vazia)
 ProductList createProductList(const char *name, int capacity) {
-    ProductList list = (ProductList) malloc(sizeof(struct productList));
-    if (!list) {
+    ProductList productList = (ProductList) malloc(sizeof(struct productList));
+    if (!productList) {
         printf("Erro ao alocar memória para a lista de compras.\n");
         return NULL;
     }
 
-    list->name = strdup(name);
-    list->capacity = capacity;
-    list->size = 0;
+    productList->name = strdup(name);
+    productList->productItems = malloc(sizeof(ProductItem) * capacity);
+    productList->capacity = capacity;
+    productList->size = 0;
 
-    return list;
+    return productList;
+}
+
+const char* getproductListName(ProductList productList) {
+    return productList ? productList->name : NULL;
+}
+
+int listNameExists(ProductList* productList, int listCount, char* name){
+    for(int i = 0; i < listCount; i++){
+        if(strcmp(getproductListName(productList[i]), name) == 0){
+            return 1;
+        }
+    }
+    return 0;
 }
 
 int addItemToList(ProductList productList, Product product, int quantity, int purchased) {
@@ -61,22 +75,12 @@ int addItemToList(ProductList productList, Product product, int quantity, int pu
     return 1;
 }
 
-
-int listNameExists(ProductList* productList, int listCount, char* name){
-    for(int i = 0; i < listCount; i++){
-        if(!productList[i]){
-            break;
-        }
-        printList(productList[i]);
-    }
-}
-
-
-void markAsPuchased(ProductList productList, char productName){
-    for(int i = 0; i < productList->size; i++){
-        if(strcmp(getProductName(productList->productItems[i]->product), productName) == 0){
-            productList->productItems[i]->purchased = 1;
-            printf("\nMarked '%s' as purchased.\n", productName);
+void markAsPurchased(ProductList productList, const char* productName, float price, const char* store) {
+    for (int i = 0; i < productList->size; i++) {
+        if (strcmp(getProductName(productList->productItems[i]->product), productName) == 0) {
+            productList->productItems[i].purchased = 1;
+            updateProductPrice(productList->productItems[i]->product, price, store);
+            printf("\nMarked '%s' as purchased (%.2f€ at %s).\n", productName, price, store);
         }
     }
 }
@@ -112,5 +116,13 @@ void printAllLists(ProductList* productList, int listCount){
             break;
         }
         printList(productList[i]);
+    }
+}
+
+void unmarkAllPurchased(ProductList productList){
+    for(int i = 0; i < productList->size; i++){
+        if(productList->productItems[i]->purchased != 0){
+            productList->productItems[i]->purchased = 0;
+        }
     }
 }
