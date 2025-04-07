@@ -140,3 +140,10 @@ void printList(ProductList productList) {
     printf("\n================================");
 
 }
+
+void setproductListName(ProductList productList, const char* newName) {
+    if (productList) {
+        free(productList->name);
+        productList->name = strdup(newName);
+    }
+}
