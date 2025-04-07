@@ -85,6 +85,34 @@ void markAsPurchased(ProductList productList, const char* productName, float pri
     }
 }
 
+void printAllLists(ProductList* productList, int listCount){
+    for(int i = 0; i < listCount; i++){
+        if(!productList[i]){
+            break;
+        }
+        printList(productList[i]);
+    }
+}
+
+void unmarkAllPurchased(ProductList productList){
+    for(int i = 0; i < productList->size; i++){
+        if(productList->productItems[i]->purchased != 0){
+            productList->productItems[i]->purchased = 0;
+        }
+    }
+}
+
+int countUnpurchasedProducts(ProductList productList){
+    int unpurchasedProductsCount = 0;
+
+    for(int i = 0; i < productList->size; i++){
+        if(productList->productItems[i]->purchased == 0){
+            unpurchasedProductsCount++;
+        }
+    }
+    return unpurchasedProductsCount;
+}
+
 void printList(ProductList productList) {
     printf("\n=========== List: %s ===========\n", productList->name);
 
@@ -106,23 +134,9 @@ void printList(ProductList productList) {
 
         printf("\n- Quantity: %d", productItem->quantity);
         printf("\n- Purchased: %s", productItem->purchased ? "Yes" : "No");
-        printf("\n================================");
+        printf("\n--------------------------------");
     }
-}
+    printf("\nItems left to purchase: %d", countUnpurchasedProducts(productList));
+    printf("\n================================");
 
-void printAllLists(ProductList* productList, int listCount){
-    for(int i = 0; i < listCount; i++){
-        if(!productList[i]){
-            break;
-        }
-        printList(productList[i]);
-    }
-}
-
-void unmarkAllPurchased(ProductList productList){
-    for(int i = 0; i < productList->size; i++){
-        if(productList->productItems[i]->purchased != 0){
-            productList->productItems[i]->purchased = 0;
-        }
-    }
 }

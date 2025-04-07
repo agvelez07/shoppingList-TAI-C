@@ -20,7 +20,6 @@
     <list default="true" id="076bd288-b3f8-4096-8d15-5c33527781c4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/productList.c" beforeDir="false" afterPath="$PROJECT_DIR$/productList.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productList.h" beforeDir="false" afterPath="$PROJECT_DIR$/productList.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +86,7 @@
       <workItem from="1743876642929" duration="1774000" />
       <workItem from="1743882029027" duration="5346000" />
       <workItem from="1743961114469" duration="7234000" />
-      <workItem from="1744014888868" duration="12214000" />
+      <workItem from="1744014888868" duration="13245000" />
     </task>
     <servers />
   </component>
