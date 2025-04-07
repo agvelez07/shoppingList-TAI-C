@@ -147,3 +147,16 @@ void setproductListName(ProductList productList, const char* newName) {
         productList->name = strdup(newName);
     }
 }
+
+void removeProductFromList(ProductList productList, Product product)
+{
+    if (productList && product) {
+        int productIndex = -1;
+        for(int i = 0; i < productList->size; i++)
+        {
+            if(strcmp(getProductName(productList->productItems[i]->product), getProductName(product)) == 0){
+                free(productList->productItems[i]);
+            }
+        }
+    }
+}
