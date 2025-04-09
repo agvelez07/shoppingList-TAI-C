@@ -15,5 +15,12 @@ void markAsPurchased(ProductList productList, const char* productName, float pri
 void printList(ProductList productList);
 void printAllLists(ProductList* productList, int listCount);
 void unmarkAllPurchased(ProductList list);
+int countUnpurchasedProducts(ProductList productList);
+void printList(ProductList productList);
+void setproductListName(ProductList productList, const char* newName);
+void removeProductFromList(ProductList productList, Product product);
+void destroyProductList(ProductList productList);
+void removeProductItemFromList(ProductList productList, const char* productName);
+int selectProductFromResults(ProductList list, int* foundIndices, int count);
 
 #endif

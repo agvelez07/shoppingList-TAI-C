@@ -204,33 +204,6 @@ productList.c.s:
 	$(MAKE) -f CMakeFiles/ficha3_ex4.dir/build.make CMakeFiles/ficha3_ex4.dir/productList.c.s
 .PHONY : productList.c.s
 
-supermarket.o: supermarket.c.o
-
-.PHONY : supermarket.o
-
-# target to build an object file
-supermarket.c.o:
-	$(MAKE) -f CMakeFiles/ficha3_ex4.dir/build.make CMakeFiles/ficha3_ex4.dir/supermarket.c.o
-.PHONY : supermarket.c.o
-
-supermarket.i: supermarket.c.i
-
-.PHONY : supermarket.i
-
-# target to preprocess a source file
-supermarket.c.i:
-	$(MAKE) -f CMakeFiles/ficha3_ex4.dir/build.make CMakeFiles/ficha3_ex4.dir/supermarket.c.i
-.PHONY : supermarket.c.i
-
-supermarket.s: supermarket.c.s
-
-.PHONY : supermarket.s
-
-# target to generate assembly for a file
-supermarket.c.s:
-	$(MAKE) -f CMakeFiles/ficha3_ex4.dir/build.make CMakeFiles/ficha3_ex4.dir/supermarket.c.s
-.PHONY : supermarket.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -249,9 +222,6 @@ help:
 	@echo "... productList.o"
 	@echo "... productList.i"
 	@echo "... productList.s"
-	@echo "... supermarket.o"
-	@echo "... supermarket.i"
-	@echo "... supermarket.s"
 .PHONY : help
 
 

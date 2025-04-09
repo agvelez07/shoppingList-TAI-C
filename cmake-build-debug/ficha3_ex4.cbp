@@ -91,12 +91,6 @@
 		<Unit filename="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productList.h">
 			<Option target="ficha3_ex4"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/supermarket.c">
-			<Option target="ficha3_ex4"/>
-		</Unit>
-		<Unit filename="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/supermarket.h">
-			<Option target="ficha3_ex4"/>
-		</Unit>
 		<Unit filename="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

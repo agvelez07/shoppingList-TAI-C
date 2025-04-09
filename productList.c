@@ -4,6 +4,8 @@
 #include "productList.h"
 #include "product.h"
 
+#define MAX_SEARCH_RESULTS 1000
+
 // Definição de ProductItem
 struct productItem {
     Product product;
@@ -78,7 +80,7 @@ int addItemToList(ProductList productList, Product product, int quantity, int pu
 void markAsPurchased(ProductList productList, const char* productName, float price, const char* store) {
     for (int i = 0; i < productList->size; i++) {
         if (strcmp(getProductName(productList->productItems[i]->product), productName) == 0) {
-            productList->productItems[i].purchased = 1;
+            productList->productItems[i]->purchased = 1;
             updateProductPrice(productList->productItems[i]->product, price, store);
             printf("\nMarked '%s' as purchased (%.2f€ at %s).\n", productName, price, store);
         }
@@ -148,17 +150,23 @@ void setproductListName(ProductList productList, const char* newName) {
     }
 }
 
-void removeProductFromList(ProductList productList, Product product)
-{
-    if (productList && product) {
-        int productIndex = -1;
-        for(int i = 0; i < productList->size; i++)
-        {
-            if(strcmp(getProductName(productList->productItems[i]->product), getProductName(product)) == 0){
-                free(productList->productItems[i]);
+void removeProductFromList(ProductList productList, Product product) {
+    if (!productList || !product) return;
+
+    for (int i = 0; i < productList->size; i++) {
+        if (strcmp(getProductName(productList->productItems[i]->product), getProductName(product)) == 0) {
+
+            for (int j = i; j < productList->size - 1; j++) {
+                productList->productItems[j] = productList->productItems[j + 1];
             }
+
+            productList->size--;
+            printf("Product removed from list.\n");
+            return;
         }
     }
+
+    printf("Product not found in list.\n");
 }
 
 void destroyProductList(ProductList productList){
@@ -168,3 +176,57 @@ void destroyProductList(ProductList productList){
     free(productList->productItems);
     free(productList);
 }
+
+void removeProductItemFromList(ProductList productList, const char* productName) {
+    if (!productList || !productName) return;
+
+    for (int i = 0; i < productList->size; i++) {
+        if (strcmp(getProductName(productList->productItems[i]->product), productName) == 0) {
+            for (int j = i; j < productList->size - 1; j++) {
+                productList->productItems[j] = productList->productItems[j + 1];
+            }
+            productList->size--; // reduz a contagem de itens
+            break;
+        }
+    }
+ }
+
+int searchProductsInList(ProductItem* products, int size, const char* searchString, int* foundIndices) {
+    int foundCount = 0;
+
+    for (int i = 0; i < size && foundCount < MAX_SEARCH_RESULTS; i++) {
+        const char* name = getProductName(products[i]->product);
+        if (strstr(name, searchString)) {
+            foundIndices[foundCount++] = i;
+        }
+    }
+
+    return foundCount;
+}
+
+int selectProductFromResults(ProductList list, int* foundIndices, int count) {
+    if (count == 0) {
+        printf("No matching products found.\n");
+        return -1;
+    }
+
+    if (count == 1) {
+        return foundIndices[0];
+    }
+
+    printf("Multiple products found:\n");
+    for (int i = 0; i < count; i++) {
+        int index = foundIndices[i];
+        printf("%d - %s\n", i + 1, getProductName(list->productItems[index]->product));
+    }
+
+    int choice = 0;
+    do {
+        printf("Choose a product (1-%d): ", count);
+        scanf("%d", &choice);
+    } while (choice < 1 || choice > count);
+
+    return foundIndices[choice - 1];
+}
+
+

@@ -19,7 +19,20 @@
   <component name="ChangeListManager">
     <list default="true" id="076bd288-b3f8-4096-8d15-5c33527781c4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ficha3_ex4.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/ficha3_ex4.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product.c" beforeDir="false" afterPath="$PROJECT_DIR$/product.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product.h" beforeDir="false" afterPath="$PROJECT_DIR$/product.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/productList.c" beforeDir="false" afterPath="$PROJECT_DIR$/productList.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/productList.h" beforeDir="false" afterPath="$PROJECT_DIR$/productList.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +81,11 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ficha3_ex4" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ficha3_ex4" TARGET_NAME="ficha3_ex4" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ficha3_ex4" RUN_TARGET_NAME="ficha3_ex4">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -86,7 +104,9 @@
       <workItem from="1743876642929" duration="1774000" />
       <workItem from="1743882029027" duration="5346000" />
       <workItem from="1743961114469" duration="7234000" />
-      <workItem from="1744014888868" duration="16938000" />
+      <workItem from="1744014888868" duration="21400000" />
+      <workItem from="1744147964180" duration="1785000" />
+      <workItem from="1744228188717" duration="6340000" />
     </task>
     <servers />
   </component>
