@@ -85,10 +85,22 @@
 		<Unit filename="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/product.h">
 			<Option target="ficha3_ex4"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productDB.c">
+			<Option target="ficha3_ex4"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productDB.h">
+			<Option target="ficha3_ex4"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productList.c">
 			<Option target="ficha3_ex4"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productList.h">
+			<Option target="ficha3_ex4"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productListDB.c">
+			<Option target="ficha3_ex4"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productListDB.h">
 			<Option target="ficha3_ex4"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/CMakeLists.txt">

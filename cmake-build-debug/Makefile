@@ -177,6 +177,33 @@ product.c.s:
 	$(MAKE) -f CMakeFiles/ficha3_ex4.dir/build.make CMakeFiles/ficha3_ex4.dir/product.c.s
 .PHONY : product.c.s
 
+productDB.o: productDB.c.o
+
+.PHONY : productDB.o
+
+# target to build an object file
+productDB.c.o:
+	$(MAKE) -f CMakeFiles/ficha3_ex4.dir/build.make CMakeFiles/ficha3_ex4.dir/productDB.c.o
+.PHONY : productDB.c.o
+
+productDB.i: productDB.c.i
+
+.PHONY : productDB.i
+
+# target to preprocess a source file
+productDB.c.i:
+	$(MAKE) -f CMakeFiles/ficha3_ex4.dir/build.make CMakeFiles/ficha3_ex4.dir/productDB.c.i
+.PHONY : productDB.c.i
+
+productDB.s: productDB.c.s
+
+.PHONY : productDB.s
+
+# target to generate assembly for a file
+productDB.c.s:
+	$(MAKE) -f CMakeFiles/ficha3_ex4.dir/build.make CMakeFiles/ficha3_ex4.dir/productDB.c.s
+.PHONY : productDB.c.s
+
 productList.o: productList.c.o
 
 .PHONY : productList.o
@@ -204,6 +231,33 @@ productList.c.s:
 	$(MAKE) -f CMakeFiles/ficha3_ex4.dir/build.make CMakeFiles/ficha3_ex4.dir/productList.c.s
 .PHONY : productList.c.s
 
+productListDB.o: productListDB.c.o
+
+.PHONY : productListDB.o
+
+# target to build an object file
+productListDB.c.o:
+	$(MAKE) -f CMakeFiles/ficha3_ex4.dir/build.make CMakeFiles/ficha3_ex4.dir/productListDB.c.o
+.PHONY : productListDB.c.o
+
+productListDB.i: productListDB.c.i
+
+.PHONY : productListDB.i
+
+# target to preprocess a source file
+productListDB.c.i:
+	$(MAKE) -f CMakeFiles/ficha3_ex4.dir/build.make CMakeFiles/ficha3_ex4.dir/productListDB.c.i
+.PHONY : productListDB.c.i
+
+productListDB.s: productListDB.c.s
+
+.PHONY : productListDB.s
+
+# target to generate assembly for a file
+productListDB.c.s:
+	$(MAKE) -f CMakeFiles/ficha3_ex4.dir/build.make CMakeFiles/ficha3_ex4.dir/productListDB.c.s
+.PHONY : productListDB.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -219,9 +273,15 @@ help:
 	@echo "... product.o"
 	@echo "... product.i"
 	@echo "... product.s"
+	@echo "... productDB.o"
+	@echo "... productDB.i"
+	@echo "... productDB.s"
 	@echo "... productList.o"
 	@echo "... productList.i"
 	@echo "... productList.s"
+	@echo "... productListDB.o"
+	@echo "... productListDB.i"
+	@echo "... productListDB.s"
 .PHONY : help
 
 

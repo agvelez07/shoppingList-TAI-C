@@ -1,1 +1,1 @@
-/usr/bin/cc -g   CMakeFiles/ficha3_ex4.dir/main.c.o CMakeFiles/ficha3_ex4.dir/product.c.o CMakeFiles/ficha3_ex4.dir/productList.c.o  -o ficha3_ex4 
+/usr/bin/cc -g   CMakeFiles/ficha3_ex4.dir/main.c.o CMakeFiles/ficha3_ex4.dir/product.c.o CMakeFiles/ficha3_ex4.dir/productDB.c.o CMakeFiles/ficha3_ex4.dir/productList.c.o CMakeFiles/ficha3_ex4.dir/productListDB.c.o  -o ficha3_ex4 

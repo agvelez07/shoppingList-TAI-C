@@ -7,6 +7,10 @@ add_executable(ficha3_ex4
         main.c
         product.c
         product.h
+        productDB.c
+        productDB.h
         productList.c
         productList.h
+        productListDB.c
+        productListDB.h
         )

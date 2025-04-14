@@ -7,56 +7,70 @@
 
 // Hidden struct definition
 struct product {
-    char *name;
-    char *type;
+    char* name;
+    char* type;
     float minPrice;
-    char *minPriceStore;
+    char* minPriceStore;
 };
 
-// Create a new product with name and type
-Product createProduct(const char *name, const char *type) {
-    Product product = (Product) malloc(sizeof(struct product));
-    if (!product) {
+Product createProduct(const char* name, const char* type) {
+    Product result = (Product)malloc(sizeof(struct product));
+
+    if (result) {
+        result->name = strdup(name);
+        result->type = strdup(type);
+        result->minPrice = -1;
+        result->minPriceStore = NULL;
+    } else {
         printf("Erro ao alocar memória para produto!\n");
-        return NULL;
     }
 
-    product->name = strdup(name);
-    product->type = strdup(type);
-    product->minPrice = -1;
-    product->minPriceStore = NULL;
-
-    return product;
+    return result;
 }
 
-// Free all memory allocated for a product
 void destroyProduct(Product product) {
     if (product) {
         free(product->name);
         free(product->type);
-        if (product->minPriceStore) free(product->minPriceStore);
+        if (product->minPriceStore) {
+            free(product->minPriceStore);
+        }
         free(product);
     }
 }
 
-// Getters
 const char* getProductName(Product product) {
-    return product ? product->name : NULL;
+    const char* result = NULL;
+    if (product) {
+        result = product->name;
+    }
+    return result;
 }
 
 const char* getProductType(Product product) {
-    return product ? product->type : NULL;
+    const char* result = NULL;
+    if (product) {
+        result = product->type;
+    }
+    return result;
 }
 
 float getProductMinPrice(Product product) {
-    return product ? product->minPrice : -1;
+    float result = -1;
+    if (product) {
+        result = product->minPrice;
+    }
+    return result;
 }
 
 const char* getProductMinPriceStore(Product product) {
-    return product ? product->minPriceStore : NULL;
+    const char* result = NULL;
+    if (product) {
+        result = product->minPriceStore;
+    }
+    return result;
 }
 
-// Update the product name
 void setProductName(Product product, const char* newName) {
     if (product) {
         free(product->name);
@@ -64,46 +78,41 @@ void setProductName(Product product, const char* newName) {
     }
 }
 
-// Update the product price and store (if price is lower)
 void updateProductPrice(Product product, float newPrice, const char* store) {
-    if (!product) return;
+    if (product) {
+        if (product->minPrice < 0 || newPrice < product->minPrice) {
+            product->minPrice = newPrice;
 
-    if (product->minPrice < 0 || newPrice < product->minPrice) {
-        product->minPrice = newPrice;
-        if (product->minPriceStore) free(product->minPriceStore);
-        product->minPriceStore = strdup(store);
+            if (product->minPriceStore) {
+                free(product->minPriceStore);
+            }
+
+            product->minPriceStore = strdup(store);
+        }
     }
 }
 
-// Print a product's information
 void printProduct(Product product) {
-    if (!product) return;
+    if (product) {
+        printf("Nome: %s\n", product->name);
+        printf("Tipo: %s\n", product->type);
 
-    printf("Nome: %s\n", product->name);
-    printf("Tipo: %s\n", product->type);
-    if (product->minPrice >= 0 && product->minPriceStore != NULL) {
-        printf("Preço mínimo: %.2f € (%s)\n", product->minPrice, product->minPriceStore);
-    } else {
-        printf("Preço mínimo: (não definido)\n");
-    }
-    printf("----------------------------\n");
-}
+        if (product->minPrice >= 0 && product->minPriceStore != NULL) {
+            printf("Preço mínimo: %.2f € (%s)\n", product->minPrice, product->minPriceStore);
+        } else {
+            printf("Preço mínimo: (não definido)\n");
+        }
 
-// Print all products from an array
-void printAllProducts(Product* product, int listCount){
-    for(int i = 0; i < listCount; i++){
-        if (!product[i]) continue;
-        printProduct(product[i]);
+        printf("----------------------------\n");
     }
 }
 
-// Search for products by name (partial match), return indices
-int searchProducts(Product* product, int size, const char* searchString, int* foundIndices) {
+int searchProducts(Product* products, int size, const char* searchString, int* foundIndices) {
     int foundCount = 0;
 
     for (int i = 0; i < size && foundCount < MAX_SEARCH_RESULTS; i++) {
-        const char *name = getProductName(product[i]);
-        if (strstr(name, searchString)) {
+        const char* name = getProductName(products[i]);
+        if (name && strstr(name, searchString)) {
             foundIndices[foundCount++] = i;
         }
     }
@@ -111,13 +120,13 @@ int searchProducts(Product* product, int size, const char* searchString, int* fo
     return foundCount;
 }
 
-// Print all products that match a type (partial match)
-void printProductsByType(Product* product, int size, const char* searchString, int* foundIndices) {
+int printProductsByType(Product* products, int size, const char* searchString, int* foundIndices) {
     int foundCount = 0;
+    int result = 0;
 
     for (int i = 0; i < size && foundCount < MAX_SEARCH_RESULTS; i++) {
-        const char *productType = getProductType(product[i]);
-        if (strstr(productType, searchString)) {
+        const char* type = getProductType(products[i]);
+        if (type && strstr(type, searchString)) {
             foundIndices[foundCount++] = i;
         }
     }
@@ -127,7 +136,10 @@ void printProductsByType(Product* product, int size, const char* searchString, i
     } else {
         printf("Products found with type \"%s\":\n", searchString);
         for (int j = 0; j < foundCount; j++) {
-            printProduct(product[foundIndices[j]]);
+            printProduct(products[foundIndices[j]]);
         }
+        result = 1;
     }
+
+    return result;
 }

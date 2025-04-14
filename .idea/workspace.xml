@@ -18,7 +18,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="076bd288-b3f8-4096-8d15-5c33527781c4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/productDB.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/productDB.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/productListDB.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/productListDB.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/DependInfo.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/build.make" afterDir="false" />
@@ -29,6 +34,7 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/ficha3_ex4.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/ficha3_ex4.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product.c" beforeDir="false" afterPath="$PROJECT_DIR$/product.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product.h" beforeDir="false" afterPath="$PROJECT_DIR$/product.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/productList.c" beforeDir="false" afterPath="$PROJECT_DIR$/productList.c" afterDir="false" />
@@ -45,6 +51,9 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/3c03d186-3eee-4374-8823-e3fbbd71bb3d_contabancaria3.0-v2-aula.zip.b3d/contabancaria3.0-v2-aula/contabancaria.c" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -78,14 +87,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\vitam\Desktop\Eng. Informatica\AED\ficha3_ex4" />
+      <recent name="C:\Users\vitam\Desktop\Eng. Informatica\AED\ficha3_ex4\cmake-build-debug" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ficha3_ex4" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ficha3_ex4" TARGET_NAME="ficha3_ex4" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ficha3_ex4" RUN_TARGET_NAME="ficha3_ex4">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -106,7 +111,11 @@
       <workItem from="1743961114469" duration="7234000" />
       <workItem from="1744014888868" duration="21400000" />
       <workItem from="1744147964180" duration="1785000" />
-      <workItem from="1744228188717" duration="6340000" />
+      <workItem from="1744228188717" duration="6635000" />
+      <workItem from="1744287229008" duration="10780000" />
+      <workItem from="1744407579423" duration="18000" />
+      <workItem from="1744565405703" duration="595000" />
+      <workItem from="1744569746828" duration="9988000" />
     </task>
     <servers />
   </component>

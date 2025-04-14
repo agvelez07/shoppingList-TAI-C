@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "productList.h"
 #include "product.h"
 
 char buffer[2048];
@@ -19,7 +20,7 @@ int menu() {
     return opcao;
 }
 
-void addProduct(Product* products, int total) {
+void addProductList(Product* products, int total) {
     int i;
     int serial, stock;
     float price;
@@ -40,8 +41,7 @@ void addProduct(Product* products, int total) {
         }
     }
     printf("Limite máximo de produtos atingido!\n");
-}
-
+}/*
 void removeProduct(Product* products, int total) {
     char nome[100];
     printf("\nDigite o nome do produto que deseja remover: ");
@@ -57,7 +57,6 @@ void removeProduct(Product* products, int total) {
     }
     printf("Produto não encontrado!\n");
 }
-
 void editStock(Product* products, int total) {
     char nome[100];
     int novoStock;
@@ -76,7 +75,6 @@ void editStock(Product* products, int total) {
     }
     printf("Produto não encontrado!\n");
 }
-
 void editPrice(Product* products, int total) {
     char nome[100];
     float novoPreco;
@@ -95,7 +93,6 @@ void editPrice(Product* products, int total) {
     }
     printf("Produto não encontrado!\n");
 }
-
 void listProducts(Product* products, int total) {
     printf("\n\n** Lista de Produtos **\n");
     for (int i = 0; i < total; i++) {
@@ -103,40 +100,45 @@ void listProducts(Product* products, int total) {
             checkProduct(products[i]);
         }
     }
-}
-
+}*/
 int main(void) {
-    int opcao, total, i;
-    printf("Digite o número máximo de produtos: ");
-    scanf("%d", &total);
+    int option, maxListCount, maxProductCount, i;
+    printf("Digite o número máximo de Listas: ");
+    scanf("%d", &maxListCount);
+    printf("Digite o número máximo de Produtos: ");
+    scanf("%d", &maxProductCount);
 
-    Product* products = (Product*)malloc(total * sizeof(Product));
+    ProductList* productLists = (Product*)malloc( maxListCount * sizeof(Product));
+    Product* products = (Product*)malloc(maxProductCount * sizeof(Product));
+    if (productLists == NULL) {
+        fprintf(stderr, "Erro ao alocar memória para o array de listas!\n");
+        return 1;
+    }
     if (products == NULL) {
         fprintf(stderr, "Erro ao alocar memória para o array de produtos!\n");
         return 1;
     }
 
-    for (i = 0; i < total; i++) {
+    for (i = 0; i < maxListCount; i++) {
+        productLists[i] = NULL;
+    }
+    for (i = 0; i < maxProductCount; i++) {
         products[i] = NULL;
     }
 
     do {
-        opcao = menu();
-        switch (opcao) {
+        option = menu();
+        switch (option) {
             case 1:
-                addProduct(products, total);
+                addProductList(productLists, maxListCount);
                 break;
             case 2:
-                removeProduct(products, total);
                 break;
             case 3:
-                editStock(products, total);
                 break;
             case 4:
-                editPrice(products, total);
                 break;
             case 5:
-                listProducts(products, total);
                 break;
             case 0:
                 printf("Encerrando o programa. Obrigado!\n");
@@ -144,9 +146,10 @@ int main(void) {
             default:
                 printf("\nOpção inválida. Tente novamente.\n");
         }
-    } while (opcao != 0);
+    } while (option != 0);
 
-    liberarMemoria(products, total);
+    //liberarMemoria(products, total);
+    free(productLists);
     free(products);
     return 0;
 }

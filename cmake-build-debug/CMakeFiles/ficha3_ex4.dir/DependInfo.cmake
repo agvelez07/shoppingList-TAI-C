@@ -6,7 +6,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/main.c" "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/main.c.o"
   "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/product.c" "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/product.c.o"
+  "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productDB.c" "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/productDB.c.o"
   "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productList.c" "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/productList.c.o"
+  "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productListDB.c" "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/cmake-build-debug/CMakeFiles/ficha3_ex4.dir/productListDB.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

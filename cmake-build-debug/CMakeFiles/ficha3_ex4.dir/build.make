@@ -83,9 +83,22 @@ CMakeFiles/ficha3_ex4.dir/product.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ficha3_ex4.dir/product.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/product.c" -o CMakeFiles/ficha3_ex4.dir/product.c.s
 
+CMakeFiles/ficha3_ex4.dir/productDB.c.o: CMakeFiles/ficha3_ex4.dir/flags.make
+CMakeFiles/ficha3_ex4.dir/productDB.c.o: ../productDB.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/ficha3_ex4.dir/productDB.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ficha3_ex4.dir/productDB.c.o   -c "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productDB.c"
+
+CMakeFiles/ficha3_ex4.dir/productDB.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ficha3_ex4.dir/productDB.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productDB.c" > CMakeFiles/ficha3_ex4.dir/productDB.c.i
+
+CMakeFiles/ficha3_ex4.dir/productDB.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ficha3_ex4.dir/productDB.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productDB.c" -o CMakeFiles/ficha3_ex4.dir/productDB.c.s
+
 CMakeFiles/ficha3_ex4.dir/productList.c.o: CMakeFiles/ficha3_ex4.dir/flags.make
 CMakeFiles/ficha3_ex4.dir/productList.c.o: ../productList.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/ficha3_ex4.dir/productList.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ficha3_ex4.dir/productList.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ficha3_ex4.dir/productList.c.o   -c "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productList.c"
 
 CMakeFiles/ficha3_ex4.dir/productList.c.i: cmake_force
@@ -96,21 +109,38 @@ CMakeFiles/ficha3_ex4.dir/productList.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ficha3_ex4.dir/productList.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productList.c" -o CMakeFiles/ficha3_ex4.dir/productList.c.s
 
+CMakeFiles/ficha3_ex4.dir/productListDB.c.o: CMakeFiles/ficha3_ex4.dir/flags.make
+CMakeFiles/ficha3_ex4.dir/productListDB.c.o: ../productListDB.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ficha3_ex4.dir/productListDB.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ficha3_ex4.dir/productListDB.c.o   -c "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productListDB.c"
+
+CMakeFiles/ficha3_ex4.dir/productListDB.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ficha3_ex4.dir/productListDB.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productListDB.c" > CMakeFiles/ficha3_ex4.dir/productListDB.c.i
+
+CMakeFiles/ficha3_ex4.dir/productListDB.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ficha3_ex4.dir/productListDB.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/productListDB.c" -o CMakeFiles/ficha3_ex4.dir/productListDB.c.s
+
 # Object files for target ficha3_ex4
 ficha3_ex4_OBJECTS = \
 "CMakeFiles/ficha3_ex4.dir/main.c.o" \
 "CMakeFiles/ficha3_ex4.dir/product.c.o" \
-"CMakeFiles/ficha3_ex4.dir/productList.c.o"
+"CMakeFiles/ficha3_ex4.dir/productDB.c.o" \
+"CMakeFiles/ficha3_ex4.dir/productList.c.o" \
+"CMakeFiles/ficha3_ex4.dir/productListDB.c.o"
 
 # External object files for target ficha3_ex4
 ficha3_ex4_EXTERNAL_OBJECTS =
 
 ficha3_ex4: CMakeFiles/ficha3_ex4.dir/main.c.o
 ficha3_ex4: CMakeFiles/ficha3_ex4.dir/product.c.o
+ficha3_ex4: CMakeFiles/ficha3_ex4.dir/productDB.c.o
 ficha3_ex4: CMakeFiles/ficha3_ex4.dir/productList.c.o
+ficha3_ex4: CMakeFiles/ficha3_ex4.dir/productListDB.c.o
 ficha3_ex4: CMakeFiles/ficha3_ex4.dir/build.make
 ficha3_ex4: CMakeFiles/ficha3_ex4.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable ficha3_ex4"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/vitam/Desktop/Eng. Informatica/AED/ficha3_ex4/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable ficha3_ex4"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ficha3_ex4.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

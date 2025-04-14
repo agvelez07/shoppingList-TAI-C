@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ficha3_ex4.dir/main.c.o"
   "CMakeFiles/ficha3_ex4.dir/product.c.o"
+  "CMakeFiles/ficha3_ex4.dir/productDB.c.o"
   "CMakeFiles/ficha3_ex4.dir/productList.c.o"
+  "CMakeFiles/ficha3_ex4.dir/productListDB.c.o"
   "ficha3_ex4"
   "ficha3_ex4.pdb"
 )
