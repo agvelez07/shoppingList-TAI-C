@@ -84,7 +84,6 @@ int removeProductByName(const char* name) {
 int printAllProducts() {
     int result = 0;
 
-    printf("\n\n** Lista de Produtos **\n");
     for (int i = 0; i < productCapacity; i++) {
         if (products[i] != NULL) {
             printProduct(products[i]);

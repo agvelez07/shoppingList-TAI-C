@@ -12,6 +12,6 @@ int removeProductByName(const char* name);
 int getProductsByName(const char* searchString, int* foundIndices, int maxResults);
 int printProductsByType(const char* searchType, int* foundIndices, int maxResults);
 Product getProduct(const char* name);
-int printAllProducts(void);
+int printAllProducts();
 
 #endif

@@ -11,11 +11,12 @@
 
 char buffer[2048];
 
-char readLine(char* buffer, int size) {
-    getchar();
-    fgets(buffer, size, stdin);
-    buffer[strcspn(buffer, "\n")] = '\0';
+ void readLine(char* buffer, int size) {
+    if (fgets(buffer, size, stdin) != NULL) {
+        buffer[strcspn(buffer, "\n")] = '\0';
+    }
 }
+
 
 int mainMenu() {
     int opcao;
@@ -23,7 +24,7 @@ int mainMenu() {
     printf("1 - Gerir produtos\n");
     printf("2 - Gerir listas de compras\n");
     printf("0 - Sair\n");
-    printf("Escolha uma opção: ");
+    printf("Escolha uma opçao: ");
     scanf("%d", &opcao);
     return opcao;
 }
@@ -36,7 +37,7 @@ void handleAddProductToList()
 
     ProductList l = getProductListByName(listName);
     if (!l) {
-        printf("Lista não encontrada na base de dados!\n");
+        printf("Lista nao encontrada na base de dados!\n");
     }
     else {
 
@@ -46,7 +47,7 @@ void handleAddProductToList()
 
         Product p = getProduct(buffer);
         if (!p) {
-            printf("Produto não encontrado na base de dados!\n");
+            printf("Produto nao encontrado na base de dados!\n");
         } else {
             int quantity;
             printf("Quantidade a adicionar: ");
@@ -73,7 +74,7 @@ void handleRemoveProductFromList() {
 
     ProductList l = getProductListByName(listName);
     if (!l) {
-        printf("Lista não encontrada na base de dados!\n");
+        printf("Lista nao encontrada na base de dados!\n");
     } else {
         printf("Nome do produto a remover da lista: ");
         readLine(productName, sizeof(productName));
@@ -81,7 +82,7 @@ void handleRemoveProductFromList() {
         if (removeProductItemFromList(l, productName)) {
             printf("Produto removido com sucesso!\n");
         } else {
-            printf("Produto não encontrado na lista.\n");
+            printf("Produto nao encontrado na lista.\n");
         }
     }
 
@@ -102,7 +103,7 @@ void handleMarkProductAsPurchased() {
 
     ProductList l = getProductListByName(listName);
     if (!l) {
-        printf("Lista não encontrada na base de dados!\n");
+        printf("Lista nao encontrada na base de dados!\n");
     } else {
         printf("Nome do produto a marcar como comprado: ");
         readLine(productName, sizeof(productName));
@@ -117,7 +118,7 @@ void handleMarkProductAsPurchased() {
         if (markProductAsPurchased(l, productName, price, store)) {
             printf("Produto marcado como comprado.\n");
         } else {
-            printf("Produto não encontrado na lista.\n");
+            printf("Produto nao encontrado na lista.\n");
         }
     }
 
@@ -135,7 +136,7 @@ void handleUnmarkAllProducts() {
 
     ProductList l = getProductListByName(listName);
     if (!l) {
-        printf("Lista não encontrada na base de dados!\n");
+        printf("Lista nao encontrada na base de dados!\n");
     } else {
         unmarkAllProductsAsPurchased(l);
         printf("Todos os produtos foram desmarcados como comprados.\n");
@@ -155,7 +156,7 @@ void handlePrintProductList() {
 
     ProductList l = getProductListByName(listName);
     if (!l) {
-        printf("Lista não encontrada na base de dados!\n");
+        printf("Lista nao encontrada na base de dados!\n");
     } else {
         printProductList(l);
     }
@@ -175,7 +176,7 @@ void handleRemoveProductObjectFromList() {
     ProductList list = getProductListByName(listName);
 
     if (!list) {
-        printf("Lista não encontrada.\n");
+        printf("Lista nao encontrada.\n");
         return;
     }
 
@@ -184,7 +185,7 @@ void handleRemoveProductObjectFromList() {
     Product product = getProduct(productName);
 
     if (!product) {
-        printf("Produto não encontrado.\n");
+        printf("Produto nao encontrado.\n");
         return;
     }
 
@@ -209,7 +210,7 @@ void handleRemoveProductByNameFromList() {
     ProductList list = getProductListByName(listName);
 
     if (!list) {
-        printf("Lista não encontrada.\n");
+        printf("Lista nao encontrada.\n");
         return;
     }
 
@@ -237,7 +238,7 @@ void handleUnmarkSingleProduct() {
     ProductList list = getProductListByName(listName);
 
     if (!list) {
-        printf("Lista não encontrada.\n");
+        printf("Lista nao encontrada.\n");
         return;
     }
 
@@ -257,14 +258,14 @@ void handleUnmarkSingleProduct() {
 void manageListProducts() {
     char listName[100];
 
-    printf("\n\nQual o nome da lista que deseja gerir? ");
+    printf("\nQual o nome da lista que deseja gerir? ");
     getchar();
     readLine(listName, sizeof(listName));
 
     ProductList list = getProductListByName(listName);
 
     if (!list) {
-        printf("\nLista não encontrada!\n");
+        printf("\nLista nao encontrada!\n");
         printf("Pressione ENTER para continuar...");
         getchar();
         return;
@@ -283,21 +284,38 @@ void manageListProducts() {
         printf("7 - Remover produto da lista (por nome direto)\n");
         printf("8 - Desmarcar um produto como comprado\n");
         printf("0 - Voltar\n");
-        printf("Escolha uma opção: ");
+        printf("\nEscolha uma opçao: ");
         scanf("%d", &option);
 
         switch (option) {
-            case 0: break;
-            case 1: handleAddProductToList(); break;
-            case 2: handleRemoveProductFromList(); break;
-            case 3: handleMarkProductAsPurchased(); break;
-            case 4: handleUnmarkAllProducts(); break;
-            case 5: handlePrintProductList(); break;
-            case 6: handleRemoveProductObjectFromList(); break;
-            case 7: handleRemoveProductByNameFromList(); break;
-            case 8: handleUnmarkSingleProduct(); break;
+            case 0:
+                break;
+            case 1:
+                handleAddProductToList();
+                break;
+            case 2:
+                handleRemoveProductFromList();
+                break;
+            case 3:
+                handleMarkProductAsPurchased();
+                break;
+            case 4:
+                handleUnmarkAllProducts();
+                break;
+            case 5:
+                handlePrintProductList();
+                break;
+            case 6:
+                handleRemoveProductObjectFromList();
+                break;
+            case 7:
+                handleRemoveProductByNameFromList();
+                break;
+            case 8:
+                handleUnmarkSingleProduct();
+                break;
             default:
-                printf("Opção inválida!\n");
+                printf("Opçao inválida!\n");
                 getchar(); getchar();
         }
 
@@ -310,7 +328,7 @@ void addList() {
     int capacity;
 
     if (!isProductListDBFull()) {
-        printf("\n\nIndique o nome da lista: ");
+        printf("\nIndique o nome da lista: ");
         getchar();
         readLine(listName, sizeof(listName));
 
@@ -329,7 +347,7 @@ void addList() {
 
 void removeProductList() {
     char listName[100];
-    printf("\n\nQual o nome da lista que quer apagar? ");
+    printf("\nQual o nome da lista que quer apagar? ");
     getchar();
     readLine(listName, sizeof(listName));
 
@@ -346,7 +364,7 @@ void removeProductList() {
 void changeProductListName() {
     char oldName[100], newName[100];
 
-    printf("\n\nQual o nome da lista que quer alterar? ");
+    printf("\nQual o nome da lista que quer alterar? ");
     getchar();
     readLine(oldName, sizeof(oldName));
 
@@ -359,16 +377,16 @@ void changeProductListName() {
         setProductListName(list, newName);
         printf("\nNome da lista alterado com sucesso!\n");
     } else {
-        printf("\nLista não encontrada!\n");
+        printf("\nLista nao encontrada!\n");
     }
 
-    printf("Pressione ENTER para continuar...");
+    printf("\nPressione Qualquer Tecla para continuar...");
     getchar();
 }
 
 void displayProductList() {
     char listName[100];
-    printf("Por favor, indique o nome da lista: ");
+    printf("\nPor favor, indique o nome da lista: ");
     getchar();
     readLine(listName, sizeof(listName));
 
@@ -377,7 +395,7 @@ void displayProductList() {
     if (list) {
         printProductList(list);
     } else {
-        printf("\nLista não encontrada!\n");
+        printf("\nLista nao encontrada!\n");
     }
 
     printf("Pressione ENTER para continuar...");
@@ -404,13 +422,21 @@ void handleSearchProductListByName() {
             printf("\nLista selecionada:\n");
             printProductList(selectedList);
         } else {
-            printf("Seleção inválida.\n");
+            printf("Seleçao inválida.\n");
         }
     }
 
-    printf("Pressione ENTER para continuar...");
+    printf("Pressione Qualquer Tecla para continuar...");
     getchar();
 }
+void handlePrintAllLists()
+{
+    printf("\n=== Lista de Todos os Produtos ===\n");
+    printAllProductLists();
+    printf("\nPressione Qualquer Tecla para continuar");
+    getchar(); getchar();
+}
+
 
 void listMenu() {
     int option;
@@ -426,7 +452,7 @@ void listMenu() {
         printf("6 - Gerir produtos de uma lista\n");
         printf("7 - Pesquisar lista por nome (parcial)\n");
         printf("0 - Voltar\n");
-        printf("Escolha uma opção: ");
+        printf("\nEscolha uma opçao: ");
 
 
         scanf("%d", &option);
@@ -446,7 +472,7 @@ void listMenu() {
                 displayProductList();
                 break;
             case 5:
-                printAllProductLists();
+                handlePrintAllLists();
                 break;
             case 6:
                 manageListProducts();
@@ -455,7 +481,7 @@ void listMenu() {
                 handleSearchProductListByName();
                 break;
             default:
-                printf("\n\nOpcao errada\n");
+                printf("\nOpcao errada\n");
         }
 
     }while(option != 0);
@@ -473,6 +499,7 @@ void handleAddProduct() {
     getchar();
     readLine(name, sizeof(name));
 
+    printf("\n%s", name);
     printf("Tipo do produto: ");
     readLine(type, sizeof(type));
 
@@ -503,7 +530,7 @@ void handleRemoveProduct() {
     if (removeProductByName(name)) {
         printf("Produto removido com sucesso!\n");
     } else {
-        printf("Produto não encontrado!\n");
+        printf("Produto nao encontrado!\n");
     }
 
     printf("Pressione ENTER para continuar...");
@@ -529,7 +556,7 @@ void handleRenameProduct() {
         setProductName(product, newName);
         printf("Nome alterado com sucesso!\n");
     } else {
-        printf("Produto não encontrado!\n");
+        printf("Produto nao encontrado!\n");
     }
 
     printf("Pressione ENTER para continuar...");
@@ -547,18 +574,18 @@ void displayProduct()
     if (p) {
         printProduct(p);
     } else {
-        printf("\nProduto não encontrado!\n");
+        printf("\nProduto nao encontrado!\n");
     }
 
-    printf("Pressione ENTER para continuar...");
+    printf("\nPressione Qualquer Tecla para continuar");
     getchar();
 }
 
-void handleListAllProducts()
+void handlePrintAllProducts()
 {
     printf("\n=== Lista de Todos os Produtos ===\n");
     printAllProducts();
-    printf("Pressione ENTER para continuar...");
+    printf("\nPressione Qualquer Tecla para continuar");
     getchar(); getchar();
 }
 
@@ -573,7 +600,7 @@ void handleSearchProductsByType() {
 
     printProductsByType(type, foundIndices, MAX_SEARCH_RESULTS);
 
-    printf("Pressione ENTER para continuar...");
+    printf("\nPressione Qualquer Tecla para continuar");
     getchar();
 }
 
@@ -584,6 +611,7 @@ void handleSearchProductByName() {
     printf("Nome (parcial): ");
     getchar();
     readLine(buffer, sizeof(buffer));
+    printf("\n");
 
     Product* allProducts = getAllProducts();
     int count = getProductsByName(buffer, foundIndices, MAX_SEARCH_RESULTS);
@@ -596,7 +624,7 @@ void handleSearchProductByName() {
         }
     }
 
-    printf("Pressione ENTER para continuar...");
+    printf("\nPressione Qualquer Tecla para continuar");
     getchar();
 }
 
@@ -605,16 +633,16 @@ void productMenu() {
 
     do {
         system("cls");
-        printf("\n===== Gestão de Produtos =====\n");
+        printf("\n===== Gestao de Produtos =====\n");
         printf("1 - Adicionar novo produto\n");
         printf("2 - Remover produto\n");
         printf("3 - Alterar nome do produto\n");
         printf("4 - Mostrar um produto\n");
-        printf("5 - Listar todos os produtos\n");
+        printf("5 - Mostrar todos os produtos\n");
         printf("6 - Pesquisar produtos por nome (parcial)\n");
         printf("7 - Pesquisar produtos por tipo (parcial)\n");
         printf("0 - Voltar\n");
-        printf("Escolha uma opção: ");
+        printf("\nEscolha uma opcao: ");
         scanf("%d", &option);
 
         switch (option) {
@@ -631,7 +659,7 @@ void productMenu() {
                 displayProduct();
                 break;
             case 5:
-                handleListAllProducts();
+                handlePrintAllProducts();
                 break;
             case 6:
                 handleSearchProductByName();
@@ -642,7 +670,7 @@ void productMenu() {
             case 0:
                 break;
             default:
-                printf("Opção inválida!\n");
+                printf("Opçao inválida!\n");
                 getchar(); getchar();
         }
     } while (option != 0);
@@ -679,7 +707,7 @@ int main(void)
                 listMenu();
                 break;
             default:
-                printf("\n\nOpcao errada\n");
+                printf("\nOpcao errada\n");
         }
     } while (option != 0);
 
