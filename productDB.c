@@ -4,11 +4,19 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_SEARCH_RESULTS 100
-
 Product* products;
 int productCapacity;
 int productCount;
+
+
+Product* getAllProducts() {
+    return products;
+}
+
+int getProductCapacity() {
+    return productCount;
+}
+
 
 void createProductDB(int capacity) {
     int i;
@@ -87,10 +95,10 @@ int printAllProducts() {
     return result;
 }
 
-int searchProductsByName(const char* searchString, int* foundIndices) {
+int getProductsByName(const char* searchString, int* foundIndices, int maxResults) {
     int foundCount = 0;
 
-    for (int i = 0; i < productCapacity && foundCount < MAX_SEARCH_RESULTS; i++) {
+    for (int i = 0; i < productCapacity && foundCount < maxResults; i++) {
         const char *name = getProductName(products[i]);
         if (name && strstr(name, searchString)) {
             foundIndices[foundCount++] = i;
@@ -100,11 +108,11 @@ int searchProductsByName(const char* searchString, int* foundIndices) {
     return foundCount;
 }
 
-int printProductsByType(const char* searchType, int* foundIndices) {
+int printProductsByType(const char* searchType, int* foundIndices, int maxResults) {
     int foundCount = 0;
     int result = 0;
 
-    for (int i = 0; i < productCapacity && foundCount < MAX_SEARCH_RESULTS; i++) {
+    for (int i = 0; i < productCapacity && foundCount < maxResults; i++) {
         const char *type = getProductType(products[i]);
         if (type && strstr(type, searchType)) {
             foundIndices[foundCount++] = i;
@@ -124,7 +132,7 @@ int printProductsByType(const char* searchType, int* foundIndices) {
     return result;
 }
 
-Product findProduct(const char* name) {
+Product getProduct(const char* name) {
     Product result = NULL;
 
     for (int i = 0; i < productCapacity; i++) {

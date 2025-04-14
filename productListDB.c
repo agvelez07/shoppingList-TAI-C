@@ -70,20 +70,17 @@ int removeProductListByName(const char* name) {
     return result;
 }
 
-int productListNameExists(ProductList* productLists, int productListCount, const char* name) {
-    int result = 0;
+ProductList getProductList(int index) {
+    ProductList result = NULL;
 
-    for (int i = 0; i < productListCount; i++) {
-        if (productLists[i] != NULL && strcmp(getProductListName(productLists[i]), name) == 0) {
-            result = 1;
-            break;
-        }
+    if (index >= 0 && index < productListCapacity && productLists[index] != NULL) {
+        result = productLists[index];
     }
 
     return result;
 }
 
-ProductList getProductListByName(ProductList* productLists, const char* name) {
+ProductList getProductListByName(const char* name) {
     ProductList result = NULL;
 
     if (productLists && name) {
@@ -98,7 +95,7 @@ ProductList getProductListByName(ProductList* productLists, const char* name) {
     return result;
 }
 
-int searchProductLists(ProductList* productLists, const char* searchString, int* foundIndices) {
+int searchProductLists(const char* searchString, int* foundIndices) {
     int foundCount = 0;
 
     for (int i = 0; i < productListCount && foundCount < MAX_SEARCH_RESULTS; i++) {
@@ -111,7 +108,7 @@ int searchProductLists(ProductList* productLists, const char* searchString, int*
     return foundCount;
 }
 
-int selectProductListFromResults(ProductList* productLists, int* foundIndices, int count) {
+int selectProductListFromResults(int* foundIndices, int count) {
     int result = 0;
 
     if (count == 1) {
@@ -130,7 +127,7 @@ int selectProductListFromResults(ProductList* productLists, int* foundIndices, i
     return result;
 }
 
-int printAllProductLists(ProductList* productLists, int productListCount) {
+int printAllProductLists() {
     int result = 0;
 
     for (int i = 0; i < productListCount; i++) {

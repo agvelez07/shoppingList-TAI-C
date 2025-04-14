@@ -3,8 +3,6 @@
 #include <string.h>
 #include "product.h"
 
-#define MAX_SEARCH_RESULTS 1000
-
 // Hidden struct definition
 struct product {
     char* name;
@@ -107,10 +105,10 @@ void printProduct(Product product) {
     }
 }
 
-int searchProducts(Product* products, int size, const char* searchString, int* foundIndices) {
+int searchProducts(Product* products, int size, const char* searchString, int* foundIndices, int maxResults) {
     int foundCount = 0;
 
-    for (int i = 0; i < size && foundCount < MAX_SEARCH_RESULTS; i++) {
+    for (int i = 0; i < size && foundCount < maxResults; i++) {
         const char* name = getProductName(products[i]);
         if (name && strstr(name, searchString)) {
             foundIndices[foundCount++] = i;
@@ -119,7 +117,7 @@ int searchProducts(Product* products, int size, const char* searchString, int* f
 
     return foundCount;
 }
-
+/*
 int printProductsByType(Product* products, int size, const char* searchString, int* foundIndices) {
     int foundCount = 0;
     int result = 0;
@@ -143,3 +141,4 @@ int printProductsByType(Product* products, int size, const char* searchString, i
 
     return result;
 }
+*/

@@ -4,8 +4,6 @@
 #include "productList.h"
 #include "product.h"
 
-#define MAX_SEARCH_RESULTS 1000
-
 // Definição de ProductItem
 struct productItem {
     Product product;
@@ -189,10 +187,10 @@ int countPendingProducts(ProductList productList){
     return unpurchasedProductsCount;
 }
 
-int searchProductsInList(ProductList productList, const char* searchTerm, int* foundIndices) {
+int searchProductsInList(ProductList productList, const char* searchTerm, int* foundIndices, int maxResults) {
     int foundCount = 0;
 
-    for (int i = 0; i < productList->size && foundCount < MAX_SEARCH_RESULTS; i++) {
+    for (int i = 0; i < productList->size && foundCount < maxResults; i++) {
         const char* name = getProductName(productList->productItems[i]->product);
         if (name && strstr(name, searchTerm)) {
             foundIndices[foundCount++] = i;
