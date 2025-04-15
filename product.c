@@ -12,19 +12,39 @@ struct product {
 };
 
 Product createProduct(const char* name, const char* type) {
-    Product result = (Product)malloc(sizeof(struct product));
+    Product result = 0;
 
-    if (result) {
-        result->name = strdup(name);
-        result->type = strdup(type);
-        result->minPrice = -1;
-        result->minPriceStore = NULL;
-    } else {
-        printf("Erro ao alocar memória para produto!\n");
+    int validInput = (name != 0 && type != 0 && strlen(name) > 0 && strlen(type) > 0);
+    int memoryOK = 1;
+
+    if (validInput) {
+        result = (Product)malloc(sizeof(struct product));
+        if (result != 0) {
+            result->name = strdup(name);
+            result->type = strdup(type);
+            result->minPrice = -1;
+            result->minPriceStore = 0;
+
+            if (result->name == 0 || result->type == 0) {
+                memoryOK = 0;
+            }
+        } else {
+            memoryOK = 0;
+        }
+    }
+
+    if (!validInput || !memoryOK) {
+        if (result != 0) {
+            free(result->name);
+            free(result->type);
+            free(result);
+            result = 0;
+        }
     }
 
     return result;
 }
+
 
 void destroyProduct(Product product) {
     if (product) {
@@ -96,9 +116,9 @@ void printProduct(Product product) {
         printf("Tipo: %s\n", product->type);
 
         if (product->minPrice >= 0 && product->minPriceStore != NULL) {
-            printf("Preço mínimo: %.2f € (%s)\n", product->minPrice, product->minPriceStore);
+            printf("Preco minimo: %.2f € (%s)\n", product->minPrice, product->minPriceStore);
         } else {
-            printf("Preço mínimo: (não definido)\n");
+            printf("Preco minimo: (nao definido)\n");
         }
 
         printf("----------------------------\n");

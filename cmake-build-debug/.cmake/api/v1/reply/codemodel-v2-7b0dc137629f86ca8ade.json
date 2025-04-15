@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ficha3_ex4::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ficha3_ex4-Debug-da602fc4b324507f3ec0.json",
+					"jsonFile" : "target-ficha3_ex4-Debug-8585530ad319b1b09d03.json",
 					"name" : "ficha3_ex4",
 					"projectIndex" : 0
 				}
@@ -55,6 +55,6 @@
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 4
+		"minor" : 7
 	}
 }

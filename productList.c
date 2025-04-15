@@ -6,7 +6,7 @@
 
 // Definição de ProductItem
 struct productItem {
-    Product product;
+    Product *product;
     int quantity;
     int purchased;
 };
@@ -59,30 +59,37 @@ void setProductListName(ProductList productList, const char* newName) {
     }
 }
 
-int addProductToList(ProductList productList, Product product, int quantity, int purchased) {
-    int result = 0;
+int addProductToList(ProductList list, Product product, int quantity) {
+    int result = 1; // 1 = sucesso por defeito
 
-    if (productList->size >= productList->capacity) {
-        int newCapacity = productList->capacity * 2;
-        ProductItem* newProductItem = realloc(productList->productItems, newCapacity * sizeof(ProductItem));
-
-        productList->productItems = newProductItem;
-        productList->capacity = newCapacity;
-        result = 1;
-
+    if (list == NULL || product == NULL || quantity <= 0) {
+        result = -1; // argumentos inválidos
     }
+    else if (list->size >= list->capacity) {
+        result = -2; // lista cheia
+    }
+    else {
+        ProductItem item = malloc(sizeof(struct productItem));
+        if (item == NULL) {
+            result = -3; // erro de alocação
+        }
+        else {
+            item->product = product;
+            item->quantity = quantity;
+            item->purchased = 0;
 
-    ProductItem productItem;
-    productItem->product = product;
-    productItem->quantity = quantity;
-    productItem->purchased = purchased;
-
-    // Inserir na posição livre
-    productList->productItems[productList->size] = productItem;
-    productList->size++;
+            list->productItems[list->size] = item;
+            list->size++;
+        }
+    }
 
     return result;
 }
+
+
+
+
+
 
 int removeProductFromList(ProductList productList, Product product) {
     int result = 0;
@@ -115,27 +122,6 @@ int removeProductItemFromList(ProductList productList, const char* productName) 
     return result;
 }
 
-int removeProductFromListByName(ProductList productList, const char* productName) {
-    int removed = 0;
-    int result = 0;
-    if (productList && productName) {
-        for (int i = 0; i < productList->size; i++) {
-            const char* name = getProductName(productList->productItems[i]->product);
-
-            if (name && strcmp(name, productName) == 0) {
-                 for (int j = i; j < productList->size - 1; j++) {
-                     productList->productItems[j] = productList->productItems[j + 1];
-                }
-                productList->size--;
-                removed = 1;
-                result = 1;
-                break;
-            }
-        }
-    }
-
-    return result;
-}
 
 int markProductAsPurchased(ProductList productList, const char* productName, float price, const char* store) {
     int result = 0;
@@ -219,18 +205,18 @@ int printProductList(ProductList list) {
             const char *store = getProductMinPriceStore(item->product);
 
             if (price >= 0 && store) {
-                printf("\n- Preço mínimo: %.2f € (%s)", price, store);
+                printf("\n- Preco minimo: %.2f eur, (%s)", price, store);
             } else {
-                printf("\n- Preço mínimo: (não definido)");
+                printf("\n- Preco minimo: (nao definido)");
             }
 
             printf("\n- Quantidade: %d", item->quantity);
-            printf("\n- Comprado: %s", item->purchased ? "Sim" : "Não");
+            printf("\n- Comprado: %s", item->purchased ? "Sim" : "Nao");
             printf("\n--------------------------------");
         }
 
         printf("\nProdutos por comprar: %d", countPendingProducts(list));
-        printf("\n================================\n");
+        printf("\n====================================\n");
         result = 1;
     }
     return result;

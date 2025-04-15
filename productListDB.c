@@ -122,7 +122,7 @@ int selectProductListFromResults(int* foundIndices, int count) {
         }
     }
     else{
-        printf("Não forma encontras productListas para esta pesquisa!");
+        printf("Nao forma encontras productListas para esta pesquisa!");
     }
     return result;
 }
